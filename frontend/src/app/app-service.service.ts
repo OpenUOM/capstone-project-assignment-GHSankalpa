@@ -13,7 +13,7 @@ export class AppServiceService {
     if(environment.production == false){
       this.ROOT_URL = 'http://localhost:4401/'
     }else{
-      this.ROOT_URL = 'http://localhost:8080'
+      this.ROOT_URL = 'http://localhost:4401/'
     }
   }
 
