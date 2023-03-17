@@ -9,16 +9,12 @@ export class AppServiceService {
 
   readonly ROOT_URL;
 
-  constructor(private http: HttpClient) {
-    if(environment.production == false){
-      this.ROOT_URL = 'http://localhost:4401/'
-    }else{
-      this.ROOT_URL = 'http://localhost:4401/'
-    }
-  }
+ constructor(private http: HttpClient) {
+    this.ROOT_URL = 'http://localhost:8080'
+}
 
   initializeDB(){
-    return this.http.get(`/${this.ROOT_URL}/dbinitialize`)
+    return this.http.get(`/api/dbinitialize`)
   }
 
   getTeacherData() {
@@ -42,15 +38,15 @@ export class AppServiceService {
   }
 
   deleteTeacher(payload: Object){
-    return this.http.post(`/${this.ROOT_URL}/deleteTeacher`, payload)
+    return this.http.post(`/api/deleteTeacher`, payload)
   }
 
   editTeacher(payload: Object){
-    return this.http.post(`/${this.ROOT_URL}/editTeacher`, payload)
+    return this.http.post(`/api/editTeacher`, payload)
   }
 
   editStudent(payload: Object){
-    return this.http.post(`/${this.ROOT_URL}/editStudent`, payload)
+    return this.http.post(`/api/editStudent`, payload)
   }
 
   addStudent(payload: Object){
@@ -58,6 +54,6 @@ export class AppServiceService {
   }
 
   deleteStudent(payload: Object){
-    return this.http.post(`/${this.ROOT_URL}/deleteStudent`, payload)
+    return this.http.post(`/api/deleteStudent`, payload)
   }
 }
